@@ -10,7 +10,7 @@ const Thoughts = [
 
   },
   {
-    thoughtText: 'I love coding?',
+    thoughtText: 'I love coding!',
     username: 'ccc',
   },
 ]

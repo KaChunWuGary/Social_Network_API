@@ -86,11 +86,12 @@ router.post('/:thoughtId/reactions', async (req,res) => {
 });
 
 //delete a reaction to a thought
-router.delete('/:thoughtId/reactions/:reactionId', async (req,res) => {
+router.delete('/:thoughtId/reactions/:reactionID', async (req,res) => {
   try {
-    await Thought.findOneAndupdate(
+    console.log(req.params.reactionID)
+    await Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: {reactions: req.params.reactionId} },
+      { $pull: { reactions: { reactionID: req.params.reactionID } } }
     );
     res.json("reaction deleted");
   } catch (err){
